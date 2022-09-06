@@ -1,6 +1,7 @@
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
+import Form from "./components/Form";
 
 const App = () => {
   return (
@@ -10,6 +11,16 @@ const App = () => {
           Buscador de Noticias
         </Typography>
       </header>
+      <Grid
+        container
+        direction="row"
+        justifyContent="center"
+        alignItems="center"
+      >
+        <Grid item xs={12} md={6} lg={4}>
+          <Form />
+        </Grid>
+      </Grid>
     </Container>
   );
 };
