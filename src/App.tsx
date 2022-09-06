@@ -1,10 +1,16 @@
-import React from "react";
+import Container from "@mui/material/Container";
+import Grid from "@mui/material/Grid";
+import Typography from "@mui/material/Typography";
 
 const App = () => {
   return (
-    <div>
-      <h1>App Noticias</h1>
-    </div>
+    <Container>
+      <header>
+        <Typography align="center" marginY={5} component="h1" variant="h3">
+          Buscador de Noticias
+        </Typography>
+      </header>
+    </Container>
   );
 };
 
