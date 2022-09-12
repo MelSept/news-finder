@@ -1,8 +1,8 @@
 import { useContext } from "react";
-import NewsContext from "../context/NewsProvider";
+import NewsContext, { CategoryContext } from "../context/NewsProvider";
 
 const useNews = () => {
-  return useContext(NewsContext);
+  return useContext(NewsContext) as CategoryContext;
 };
 
 export default useNews;

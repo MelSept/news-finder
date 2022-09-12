@@ -1,13 +1,43 @@
-import { useState, useEffect, createContext, ReactNode } from "react";
+import {
+  useState,
+  useEffect,
+  createContext,
+  ReactNode,
+  ChangeEvent,
+} from "react";
 
-type Props = {
+type props = {
   children?: ReactNode;
 };
 
-const NewsContext = createContext<>();
+type TCategory = {
+  value: string;
+  label: string;
+};
 
-const NewsProvider = ({ children }: Props) => {
-  return <NewsContext.Provider value={{}}>{children}</NewsContext.Provider>;
+export interface CategoryContext {
+  category: TCategory;
+  handleChangeCategory: (
+    e: ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => void;
+}
+
+const NewsContext = createContext<CategoryContext | null>(null);
+
+const NewsProvider = ({ children }: props) => {
+  const [category, setCategory] = useState("general");
+
+  const handleChangeCategory = (
+    e: ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
+    setCategory(e.target.value);
+  };
+
+  return (
+    <NewsContext.Provider value={{ category, handleChangeCategory }}>
+      {children}
+    </NewsContext.Provider>
+  );
 };
 
 export { NewsProvider };

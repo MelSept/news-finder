@@ -7,8 +7,9 @@ import {
   Button,
   Box,
 } from "@mui/material";
+import useNews from "../hooks/useNews";
 
-const Category = [
+const Categories = [
   { value: "general", label: "General" },
   { value: "business", label: "Negocios" },
   { value: "entertainment", label: "Entretenimiento" },
@@ -19,13 +20,15 @@ const Category = [
 ];
 
 const Form = (): ReactElement => {
+  const { category, handleChangeCategory } = useNews();
+
   return (
     <div>
       <form>
         <FormControl fullWidth>
           <InputLabel>Categoría</InputLabel>
           <Select label="Categoria">
-            {Category.map((category) => (
+            {Categories.map((category) => (
               <MenuItem key={category.value} value={category.value}>
                 {category.label}
               </MenuItem>
